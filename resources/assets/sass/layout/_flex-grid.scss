@@ -1,0 +1,140 @@
+@import '../variables/variables';
+@import '../mixins/mixins';
+
+
+// ==========  Grid   ========== //
+
+.md-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
+  width: 100%;
+
+  @media (min-width: $grid-desktop-breakpoint) {
+    &.has-desktop-gutter {
+      padding-left: $grid-desktop-gutter;
+      padding-right: $grid-desktop-gutter;
+
+      .md-container--box {
+        max-width: ($screen-desktop-breakpoint - 2 * ($grid-gutter));
+      }
+    }
+  }
+
+  &--box {
+    max-width: ($screen-desktop-breakpoint - 2*($grid-gutter));
+  }
+}
+
+.md-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$grid-margin;
+  margin-right: -$grid-margin;
+}
+
+.md-col {
+  padding-left: $grid-margin;
+  padding-right: $grid-margin;
+  flex-grow: 1;
+  max-width: 100%;
+  width: 100%;
+  min-height: 1px;
+}
+
+@for $i from 1 through ($grid-max-columns - 1) {
+  .md-col--offset-#{$i}{
+    @include flex-offset-size($i, $grid-max-columns);
+  }
+  .md-col--#{$i} {
+    @include flex-layout($i);
+  }
+}
+
+////////// Mobile //////////
+
+@media (max-width: $screen-phone-breakpoint - 1px) {
+  // Define 100% for md-col--md.
+  .md-col--xs{
+    @include full-flex();
+  }
+
+  @for $i from 1 through $grid-max-columns {
+    .md-col--xs-#{$i} {
+      @include flex-layout($i);
+    }
+  }
+
+  @for $i from 1 through ($grid-max-columns - 1) {
+    .md-col--xs-offset-#{$i}{
+      @include flex-offset-size($i, $grid-max-columns);
+    }
+  }
+}
+
+////////// Tablet //////////
+
+@media (min-width: $screen-phone-breakpoint) and (max-width: $screen-tablet-breakpoint - 1px) {
+
+  // Define 100% for md-col--md.
+  .md-col--sm{
+    @include full-flex();
+  }
+
+  @for $i from 1 through $grid-max-columns {
+    .md-col--sm-#{$i} {
+      @include flex-layout($i);
+    }
+  }
+
+  @for $i from 1 through ($grid-max-columns - 1) {
+    .md-col--sm-offset-#{$i}{
+      @include flex-offset-size($i, $grid-max-columns);
+    }
+  }
+
+}
+
+////////// Desktop //////////
+
+@media (min-width: $screen-tablet-breakpoint) {
+
+  // Define 100% for md-col--md.
+  .md-col--md{
+    @include full-flex();
+  }
+
+  @for $i from 1 through $grid-max-columns {
+    .md-col--md-#{$i} {
+      @include flex-layout($i);
+    }
+  }
+
+  @for $i from 1 through ($grid-max-columns - 1) {
+    .md-col--md-offset-#{$i}{
+      @include flex-offset-size($i, $grid-max-columns);
+    }
+  }
+
+}
+
+@media (min-width: $screen-large-desktop-breakpoint) {
+
+  .md-col--lg{
+    @include full-flex();
+  }
+
+  @for $i from 1 through $grid-max-columns {
+    .md-col--lg-#{$i} {
+      @include flex-layout($i);
+    }
+  }
+
+  @for $i from 1 through ($grid-max-columns - 1) {
+    .md-col--lg-offset-#{$i}{
+      @include flex-offset-size($i, $grid-max-columns);
+    }
+  }
+
+}

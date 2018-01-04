@@ -1,0 +1,33 @@
+// ==========  Flex   ========== //
+.md-flex {
+  flex: 1;
+  @media screen\0 {
+    .flex {
+      flex: 1 1 0;
+    }
+  }
+
+  &--grow {
+    flex: 1 1 100%;
+  }
+
+  &--initial {
+    flex: 0 1 auto;
+  }
+
+  &--auto {
+    flex: 1 1 auto;
+  }
+
+  &--none {
+    flex: 0 0 auto;
+  }
+
+  &--noshrink {
+    flex: 1 0 auto;
+  }
+
+  &--nogrow {
+    flex: 0 1 auto;
+  }
+}

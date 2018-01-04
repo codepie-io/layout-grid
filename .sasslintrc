@@ -1,0 +1,6 @@
+{
+    include: 'resources/assets/sass/**/*.s+(a|c)ss',
+    BemDepth: {
+        enabled: true
+    }
+}

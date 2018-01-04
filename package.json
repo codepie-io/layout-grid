@@ -1,0 +1,34 @@
+{
+  "name": "layout-grid",
+  "version": "1.0.0",
+  "description": "Mobile first grid system built on latest CSS Grid Layout with material design guidelines.",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeartisan-ui/layout-grid.git"
+  },
+  "author": "Prakash Bharti <prakashbharti786@gmail.com> (https://codeartisan.in)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codeartisan-ui/layout-grid/issues"
+  },
+  "homepage": "https://github.com/codeartisan-ui/layout-grid#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "cross-env": "^3.2.3",
+    "laravel-mix": "0.*",
+    "lodash": "^4.17.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  }
+}

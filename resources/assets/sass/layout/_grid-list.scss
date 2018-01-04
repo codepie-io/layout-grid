@@ -1,0 +1,170 @@
+@import '../variables/variables';
+
+// ==========  Grid List  ========== //
+
+// Define order override classes.
+@for $i from 1 through $grid-max-columns {
+  .md-grid-tile--order-#{$i} {
+    order: $i;
+  }
+}
+
+// Mixins for width calculation.
+@mixin partial-size($size, $columns, $gutter) {
+  width: calc(#{(($size / $columns) * 100)+'%'} - #{$gutter});
+
+  .md-grid--narrow > & {
+    width: calc(#{(($size / $columns) * 100)+'%'} - #{$grid-list-gutter-narrow});
+  }
+}
+
+@mixin full-size($gutter) {
+  @include partial-size(1, 1, $gutter);
+}
+
+.md-grid-list {
+  display: flex;
+  flex-grow: 1;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  align-items: stretch;
+  padding: 2px;
+  &--no-spacing {
+    padding: 0;
+    margin: 0 -2px;
+  }
+}
+
+.md-grid-tile {
+  box-sizing: border-box;
+  margin: $grid-list-gutter / 2;
+  @include partial-size($grid-cell-default-columns, $grid-tablet-columns,$grid-list-gutter);
+  .md-grid--has-tile &{
+    border: $grid-has-tile-margin/2 solid transparent !important;
+    box-sizing: border-box;
+  }
+}
+
+.md-grid-tile--top {
+  align-self: flex-start;
+}
+
+.md-grid-tile--middle {
+  align-self: center;
+}
+
+.md-grid-tile--bottom {
+  align-self: flex-end;
+}
+
+.md-grid-tile--stretch {
+  align-self: stretch;
+}
+
+////////// Phone //////////
+
+@media (max-width: $grid-tablet-breakpoint - 1) {
+
+  .md-grid-tile--hide-xs {
+    display: none !important;
+  }
+
+  @for $i from 1 through $grid-max-columns {
+    .md-grid-tile--order-#{$i}-xs.md-grid-tile--order-#{$i}-xs {
+      order: $i;
+    }
+  }
+
+  @for $i from 1 through ($grid-phone-columns - 1) {
+    .md-grid-tile--#{$i}-col,
+    .md-grid-tile--#{$i}-col-xs.md-grid-tile--#{$i}-col-xs {
+      @include partial-size($i, $grid-phone-columns, $grid-list-gutter);
+    }
+  }
+
+  @for $i from $grid-phone-columns through $grid-desktop-columns {
+    .md-grid-tile--#{$i}-col,
+    .md-grid-tile--#{$i}-col-xs.md-grid-tile--#{$i}-col-xs {
+      @include full-size($grid-list-gutter);
+    }
+  }
+}
+
+
+////////// Tablet //////////
+
+@media (min-width: $grid-tablet-breakpoint) and (max-width: $grid-desktop-breakpoint - 1) {
+
+  .md-grid-tile--hide-sm {
+    display: none !important;
+  }
+
+  @for $i from 1 through $grid-max-columns {
+    .md-grid-tile--order-#{$i}-sm.md-grid-tile--order-#{$i}-sm {
+      order: $i;
+    }
+  }
+
+  @for $i from 1 through ($grid-tablet-columns - 1) {
+    .md-grid-tile--#{$i}-col,
+    .md-grid-tile--#{$i}-col-sm.md-grid-tile--#{$i}-col-sm {
+      @include partial-size($i, $grid-tablet-columns, $grid-list-gutter);
+    }
+  }
+
+  @for $i from $grid-tablet-columns through $grid-desktop-columns {
+    .md-grid-tile--#{$i}-col,
+    .md-grid-tile--#{$i}-col-sm.md-grid-tile--#{$i}-col-sm {
+      @include full-size($grid-list-gutter);
+    }
+  }
+
+}
+
+
+////////// Desktop //////////
+
+@media (min-width: $grid-desktop-breakpoint) {
+
+  .md-grid-tile--hide-md {
+    display: none !important;
+  }
+
+  @for $i from 1 through $grid-max-columns {
+    .md-grid-tile--order-#{$i}-md.md-grid-tile--order-#{$i}-md {
+      order: $i;
+    }
+  }
+
+  @for $i from 1 through $grid-desktop-columns {
+    .md-grid-tile--#{$i}-col,
+    .md-grid-tile--#{$i}-col-md.md-grid-tile--#{$i}-col-md {
+      @include partial-size($i, $grid-desktop-columns, $grid-list-gutter);
+    }
+  }
+
+}
+
+
+////////// Large Desktop //////////
+
+@media (min-width: $grid-large-desktop-breakpoint) {
+
+  .md-grid-tile--hide-lg {
+    display: none !important;
+  }
+
+  @for $i from 1 through $grid-max-columns {
+    .md-grid-tile--order-#{$i}-lg.md-grid-tile--order-#{$i}-lg {
+      order: $i;
+    }
+  }
+
+  @for $i from 1 through $grid-desktop-columns {
+    .md-grid-tile--#{$i}-col,
+    .md-grid-tile--#{$i}-col-lg.md-grid-tile--#{$i}-col-lg {
+      @include partial-size($i, $grid-desktop-columns, $grid-list-gutter);
+    }
+  }
+
+}

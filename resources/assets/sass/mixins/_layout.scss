@@ -1,0 +1,52 @@
+@mixin layout-margin($margin-unit, $direction, $use-breakpoint: false, $breakpoint-type: 'sm') {
+  @if($use-breakpoint) {
+    .layout-m-#{str-slice($direction, 1, 1)}-#{$margin-unit}--#{$breakpoint-type} {
+      margin-#{$direction}: $margin-unit * (16px);
+    }
+  } @else {
+    .layout-m-#{str-slice($direction, 1, 1)}-#{$margin-unit} {
+      margin-#{$direction}: $margin-unit * (16px) - ($margin-unit - 1) * (8px);
+    }
+  }
+}
+@mixin layout-padding($margin-unit, $direction, $use-breakpoint: false, $breakpoint-type: 'sm') {
+  @if($use-breakpoint) {
+    .layout-p-#{str-slice($direction, 1, 1)}-#{$margin-unit}--#{$breakpoint-type} {
+      padding-#{$direction}: $margin-unit * (16px);
+    }
+  } @else {
+    .layout-p-#{str-slice($direction, 1, 1)}-#{$margin-unit} {
+      padding-#{$direction}: $margin-unit * (16px);
+    }
+  }
+}
+
+//responsive-hidden
+@mixin responsive-hidden($parent) {
+  #{$parent} {
+    display: none;
+  }
+}
+
+//Flex Layout
+@mixin flex-layout($size) {
+  flex: 0 0 #{(($size / $grid-max-columns) * 100) + '%'};
+  max-width: #{(($size / $grid-max-columns) * 100) + '%'};
+}
+
+@mixin offset-size($size, $columns) {
+  margin-left: #{(($size / $columns) * 100)+ '%'};
+  .lg-grid.lg-grid--no-spacing > & {
+    margin-left: #{(($size / $columns) * 100)+ '%'};
+  }
+}
+
+@mixin flex-offset-size($size, $columns) {
+  margin-left: #{(($size / $columns) * 100) + '%'};
+}
+
+@mixin full-flex {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}

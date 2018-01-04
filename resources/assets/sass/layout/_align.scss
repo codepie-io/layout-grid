@@ -1,0 +1,96 @@
+// ==========  Layout Align   ========== //
+
+.md-align {
+  align-content: stretch;
+  align-items: stretch;
+  justify-content: flex-start;
+
+  &--start,
+  &--start-start,
+  &--start-center,
+  &--start-end,
+  &--start-stretch {
+    justify-content: start;
+  }
+
+  &--center,
+  &--center-start,
+  &--center-center,
+  &--center-end,
+  &--center-stretch {
+    justify-content: center;
+  }
+
+  &--end,
+  &--end-start,
+  &--end-center,
+  &--end-end,
+  &--end-stretch {
+    justify-content: flex-end;
+  }
+
+  &--space-around,
+  &--space-around-center,
+  &--space-around-start,
+  &--space-around-end,
+  &--space-around-stretch {
+    justify-content: space-around;
+  }
+
+  &--space-between,
+  &--space-between-center,
+  &--space-between-start,
+  &--space-between-end,
+  &--space-between-stretch {
+    justify-content: space-between;
+  }
+
+  &--start-start,
+  &--center-start,
+  &--end-start,
+  &--space-between-start,
+  &--space-around-start {
+    align-content: flex-start;
+    align-items: flex-start;
+  }
+
+  &--start-center,
+  &--center-center,
+  &--end-center,
+  &--space-between-center,
+  &--space-around-center {
+    align-content: center;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  &--start-end,
+  &--center-end,
+  &--end-end,
+  &--space-between-end,
+  &--space-around-end {
+    align-content: flex-end;
+    align-items: flex-end;
+  }
+
+  &--start-stretch,
+  &--center-stretch,
+  &--end-stretch,
+  &--space-between-stretch,
+  &--space-around-stretch {
+    align-content: stretch;
+    align-items: stretch;
+  }
+
+  &--self-stretch {
+    align-self: stretch;
+  }
+
+  &--self-end {
+    align-self: flex-end;
+  }
+
+  &--self-start {
+    align-self: flex-start;
+  }
+}

@@ -1,0 +1,32 @@
+@import '../variables/variables';
+@import '../mixins/mixins';
+
+.grid {
+  display: grid;
+  grid-gap: 24px;
+  grid-template-columns: repeat(12, 1fr);
+  padding-left: 24px;
+  padding-right: 24px;
+
+  &__item {
+    border: 1px solid #9ccc65;
+  }
+}
+@media (min-width: $screen-phone-breakpoint) and (max-width: $screen-tablet-breakpoint - 1px) {
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+@media (max-width: $screen-tablet-breakpoint - 1px) {
+  .grid {
+    grid-gap: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (max-width: $screen-phone-breakpoint - 1px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
