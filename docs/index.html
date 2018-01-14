@@ -28,7 +28,26 @@
     <link href="css/app.css" rel="stylesheet">
     <link href="css/layout-grid.css" rel="stylesheet">
     <link href="css/docs.css" rel="stylesheet">
+    <link href="css/phone.css" rel="stylesheet">
     <link href="vendor/highlight/styles/vs.css" rel="stylesheet">
+    <style>
+        body{
+            background-color: #fafafa;
+        }
+        .fixed-showcase{
+            position: fixed;
+            top:72px;
+            left: 24px;
+            background-color: #3f51b5;
+            color: #fff;
+            border-radius: 4px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+        }
+    </style>
 </head>
 <body class="has-fixed-header">
 
@@ -38,8 +57,13 @@
         <div class="md-layout-spacer"></div>
     </div>
 </header>
+<div class="fixed-showcase text-center">
+    <div class="hidden--lt-sm hidden-sm">Desktop</div>
+    <div class="hidden--gt-sm hidden--xs">Tablet</div>
+    <div class="hidden--gt-xs">Mobile</div>
+</div>
 
-<section class="" id="app">
+<section id="app" class="">
     <div class="md-container md-container--box layout-m-b-3">
         <h1 class="md-typography--display-1 md-text-primary">
             Responsive Layout
@@ -47,7 +71,7 @@
         <p>
             As per material design guidelines, our grid system adapt layouts for the following breakpoint widths: 480, 600, 840, 960, 1280, 1440, and 1600dp.
         </p>
-        <section>
+        <section class="">
             <nav class="docs-chapter-wrapper">
                 <h1 class="docs-chapter-title">Contents</h1>
                 <ul class="docs-chapter">
@@ -66,9 +90,93 @@
                 </ul>
             </nav>
         </section>
+
+        <section id="add-dialog" class="md-row">
+            <div class="md-col md-col--6">
+                <h3 class="docs-heading docs-heading--with-border">
+                    Responsive Grid
+                </h3>
+            </div>
+        </section>
+
+        <section class="md-row">
+            <div class="md-col">
+                <div class="splash design">
+                    <div class="wrapper standard md-align md-layout md-align--center-start">
+                        <div class="nt-phone nt-phone--tablet nt-phone--black nt-phone--upper slideFadeIn nt-animate nt-animate--big-delay-1">
+                            <span class="nt-phone__camera"></span>
+                            <span class="nt-phone__speaker"></span>
+                            <div class="nt-phone__shadow"></div>
+                            <div class="nt-phone__screen md-layout md-layout--row">
+                                <div class="inner cf">
+                                    <div class="nt-phone__movable-screen" data-toggle="bg-scroll" data-mark="#development-section" id="u_0_6u">
+                                        <iframe width="100%" height="600px" src="_adaptiveui-grid.html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="nt-phone__button"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="md-row">
+            <div class="md-col md-col--8-md">
+                <p>
+                    A responsive grid is very essential when you are developing mobile first web.
+                    It has 12, 8 and 4 columns for the desktop, tablet and mobile view respectively.
+                    All the grid size and breakpoints follow the material design guidelines precisely.
+                    However you can make your own breakpoints by editing Sass variables.
+                </p>
+            </div>
+            <div class="md-col md-col--6-md hidden">
+                <div class="splash design" style="margin-top: -128px">
+                    <div class="wrapper standard md-align md-layout md-align--center-start">
+                        <div class="nt-phone nt-phone--upper slideFadeIn nt-animate nt-animate--big-delay-1">
+                            <span class="nt-phone__camera"></span>
+                            <span class="nt-phone__speaker"></span>
+                            <div class="nt-phone__shadow"></div>
+                            <div class="nt-phone__screen">
+                                <div class="inner cf">
+                                    <div class="nt-phone__movable-screen" data-toggle="bg-scroll" data-mark="#development-section">
+                                        <iframe width="100%" height="684" src="_mobile-demo.html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="nt-phone__button"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="demo-view">
+            <h4 class="docs-heading">
+                Responsive demo on tablet and mobile
+            </h4>
+
+            <div class="splash design">
+                <div class="wrapper standard md-align md-layout md-align--center-start">
+                    <div class="nt-phone nt-phone--tablet nt-phone--upper slideFadeIn nt-animate nt-animate--big-delay-1">
+                        <span class="nt-phone__camera"></span>
+                        <span class="nt-phone__speaker"></span>
+                        <div class="nt-phone__shadow"></div>
+                        <div class="nt-phone__screen md-layout md-layout--row">
+                            <div class="inner cf">
+                                <div class="nt-phone__movable-screen" data-toggle="bg-scroll" data-mark="#development-section" id="u_0_6u">
+                                    <iframe width="100%" height="600px" src="_mobile-demo.html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                                </div>
+                            </div>
+                            <div class="black-screen slideAppear" style="width: 200px"></div>
+                        </div>
+                        <span class="nt-phone__button"></span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
     </div>
 </section>
-
 
 <script src="js/jquery.js"></script>
 <script src="vendor/highlight/highlight.pack.js"></script>

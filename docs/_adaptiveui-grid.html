@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Dialogs | Material Design | CodeArtisan</title>
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Dialogs | Material Design | CodeArtisan">
+    <meta name="theme-color" content="#4caf50">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Artisan Deals">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#43a047">
+
+    <!-- Tile icon for Win8 -->
+    <meta name="msapplication-TileColor" content="#4caf50">
+    <meta name="msapplication-navbutton-color" content="#43a047">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+    <link href="css/app.css" rel="stylesheet">
+    <link href="css/docs.css" rel="stylesheet">
+    <link href="css/layout-grid.css" rel="stylesheet">
+    <style>
+        .app-wrapper {
+            background-color: #fafafa;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .dummy-header{
+            position: absolute;
+            width: 100%;
+            height: 128px;
+            top:0;
+            left: 0;
+            padding-top: 60px;
+            transform: translateY(-128px);
+            background-color: #fff;
+            z-index: 4;
+            box-shadow: 0 2px 5px rgba(0,0,0,.26);
+        }
+        .grid-overlay, .grid-overlay--2{
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0;
+            z-index: 10;
+        }
+        .grid-overlay--2{
+            z-index: 9;
+            opacity: 1;
+        }
+        .grid-overlay__wrapper .demo-grid {
+            background-color: #2196F3;
+            height: 100vh;
+        }
+        .demo-list{
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            position: fixed;
+            top:0;
+            left: 0;
+            margin-left: -8px;
+            border: 1px solid rgba(0,0,0,.06);
+            width: 33.3333%;
+        }
+        .demo-list__item {
+            flex-basis: 10%;
+            border-bottom: 1px solid rgba(0,0,0,.06);
+            background-color: #fff;
+        }
+        .demo-page-sheet {
+            background-color: #fff;
+            z-index: 8;
+            position: relative;
+            height: calc(100vh - 92px);
+            box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+        }
+        @keyframes headerAppear {
+            0% {
+                transform: translateY(-138px);
+            }
+            5% {
+                transform: translateY(-56px);
+            }
+            50% {
+                transform: translateY(-56px);
+            }
+            55% {
+                transform: translateY(0);
+            }
+            95% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-56px);
+            }
+        }
+        @keyframes leftPanAppear {
+            0% {
+                transform: translate(-100%,0);
+            }
+            5% {
+                transform: translate(0,0);
+            }
+            45% {
+                transform: translate(0,0);
+            }
+            50% {
+                transform: translate(0,56px);
+            }
+            90% {
+                transform: translate(0,56px);
+            }
+            95% {
+                transform: translate(-100%,56px);
+            }
+            100% {
+                transform: translate(-100%,56px);
+            }
+        }
+        @keyframes pageSheetIn {
+            0% {
+                transform: translateY(100%);
+            }
+            5% {
+                transform: translateY(116px);
+            }
+
+            45% {
+                transform: translateY(116px);
+            }
+            50% {
+                transform: translateY(48px);
+            }
+            90% {
+                transform: translateY(48px);
+            }
+            95% {
+                transform: translateY(-110%);
+            }
+            100% {
+                transform: translateY(-110%);
+            }
+        }
+        @keyframes overlayFade {
+            0% {
+                opacity: 0;
+            }
+            20% {
+                opacity: 0;
+            }
+            25% {
+                opacity: 0.2;
+            }
+            40% {
+                opacity: 0.2;
+            }
+            45% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        @keyframes sheetIn {
+            0% {
+                transform: translateY(100vh);
+            }
+            5% {
+                transform: translateY(0);
+            }
+            90% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+        .md-animate {
+            animation-timing-function:cubic-bezier(0.4, 0.0, 0.2, 1);
+            visibility: hidden;
+        }
+        .animate .md-animate {
+            visibility: visible;
+        }
+        .md-animate--LinearOutSlowIn {
+            animation-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+        }
+        .headerAppear{
+            animation-duration: 6s;
+            animation-fill-mode: both;
+        }
+        .pageSheetIn{
+            animation-duration: 6s;
+            animation-delay: .3s;
+            animation-fill-mode: both;
+        }
+        .leftPanAppear{
+            animation-duration: 6s;
+            animation-delay: .3s;
+            animation-fill-mode: both;
+        }
+        .grid-overlay {
+            animation-duration: 6s;
+            animation-delay: .3s;
+            animation-fill-mode: both;
+        }
+        .animate .pageSheetIn{
+            animation-name: pageSheetIn;
+        }
+        .animate .grid-overlay{
+            animation-name: overlayFade;
+        }
+        .animate .leftPanAppear{
+            animation-name: leftPanAppear;
+        }
+        .animate .headerAppear{
+            animation-name: headerAppear;
+        }
+        .demo-list .demo-page-sheet{
+            height: 320px;
+            flex-basis: auto;
+            margin-bottom: 24px;
+            animation-duration: 6s;
+            animation-delay: 6s;
+            animation-fill-mode: both;
+        }
+        .animate .demo-list .demo-page-sheet {
+            animation-name: sheetIn;
+        }
+    </style>
+</head>
+<body class="">
+
+<div class="app-wrapper" id="adaptive-app">
+    <div class="dummy-header headerAppear md-animate"></div>
+    <div class="demo-list leftPanAppear md-animate">
+        <div class="demo-list__item"></div>
+        <div class="demo-list__item"></div>
+        <div class="demo-list__item"></div>
+        <div class="demo-list__item"></div>
+        <div class="demo-list__item"></div>
+        <div class="demo-list__item"></div>
+        <div class="demo-list__item"></div>
+        <div class="demo-list__item"></div>
+        <div class="demo-list__item"></div>
+        <div class="demo-list__item"></div>
+    </div>
+    <div class="md-container has-gutter has-gutter--8 has-gutter--24">
+        <div class="md-row">
+            <div class="md-col md-col--4-md">
+            </div>
+            <div class="md-col md-col--offset-1-md md-col--6-md">
+                <div class="demo-page-sheet md-animate md-animate--LinearOutSlowIn pageSheetIn">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid-overlay md-animate">
+        <div class="md-container has-gutter has-gutter--24">
+            <div class="md-row grid-overlay__wrapper">
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid-overlay md-animate" style="animation-delay: 6s;z-index: 11">
+        <div class="md-container has-gutter has-gutter--24">
+            <div class="md-row grid-overlay__wrapper">
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="md-col md-col--1">
+                    <div class="demo-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="md-animate grid-overlay--2">
+        <div class="md-container has-gutter has-gutter--24">
+            <div class="md-row">
+                <div class="md-col md-col--6-md md-col--offset-3-md">
+                    <div class="demo-list" style="margin-top:116px;position: relative; height: auto; width: 100%;margin-left: 0;border: none;">
+                        <div class="md-animate--LinearOutSlowIn demo-page-sheet"></div>
+                        <div class="md-animate--LinearOutSlowIn demo-page-sheet"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function timeout() {
+        setTimeout(function () {
+            var b = document.getElementById('adaptive-app')
+            b.classList.remove('animate')
+            setTimeout(function () {
+                b.classList.add('animate')
+            },300)
+            timeout();
+        }, 12000);
+    }
+    document.getElementById('adaptive-app').classList.add('animate')
+    timeout()
+</script>
+</html>

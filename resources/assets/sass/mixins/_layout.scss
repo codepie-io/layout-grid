@@ -9,6 +9,7 @@
     }
   }
 }
+
 @mixin layout-padding($margin-unit, $direction, $use-breakpoint: false, $breakpoint-type: 'sm') {
   @if($use-breakpoint) {
     .layout-p-#{str-slice($direction, 1, 1)}-#{$margin-unit}--#{$breakpoint-type} {
@@ -29,9 +30,9 @@
 }
 
 //Flex Layout
-@mixin flex-layout($size) {
-  flex: 0 0 #{(($size / $grid-max-columns) * 100) + '%'};
-  max-width: #{(($size / $grid-max-columns) * 100) + '%'};
+@mixin flex-layout($size, $max-columns) {
+  flex: 0 0 #{(($size / $max-columns) * 100) + '%'};
+  max-width: #{(($size / $max-columns) * 100) + '%'};
 }
 
 @mixin offset-size($size, $columns) {

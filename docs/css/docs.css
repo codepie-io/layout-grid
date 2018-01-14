@@ -61,3 +61,40 @@ p{
     color: inherit;
     font-weight: inherit;
 }
+.app-wrapper {
+    padding: 16px 0;
+}
+.demo-col__item.md-card {
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 0;
+    height: 80px;
+}
+.black-screen{
+    background: #272527;
+    width: 0;
+    height: 100%;
+}
+/*.black-screen.is-appeared {
+    width: 100px;
+}*/
+@keyframes slideAppear {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 900px;
+    }
+}
+
+.slideAppear{
+    animation-name: slideAppear;
+    animation-delay: 1s;
+    animation-duration: 3s;
+    animation-timing-function:cubic-bezier(.4,0,1,1);
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-direction: alternate-reverse;
+}

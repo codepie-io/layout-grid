@@ -1,0 +1,152 @@
+.nt-phone {
+    width: 325px;
+    height: 525px;
+    padding: 65px 15px;
+    background: #fff;
+    box-shadow: 0 0 200px 0 rgba(0, 0, 0, .1);
+    border-radius: 25px;
+    position: relative;
+    box-sizing: content-box;
+}
+
+.nt-phone .shadow {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 65px;
+    left: 15px;
+    z-index: 2;
+    box-shadow: inset 0 0 50px 0 rgba(0, 0, 0, .075);
+    pointer-events: none
+}
+
+.nt-phone__button,
+.nt-phone__camera,
+.nt-phone__speaker {
+    display: block;
+    left: 50%
+}
+
+.nt-phone__screen {
+    width: inherit;
+    height: inherit;
+    background: #000;
+    overflow: hidden;
+    position: relative
+}
+
+.nt-phone__screen .inner {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    z-index: 1
+}
+
+.nt-phone__camera {
+    width: 7px;
+    height: 7px;
+    margin-left: -48px;
+    position: absolute;
+    top: 29px;
+    background: #dbe3eb;
+    border-radius: 100%
+}
+
+.nt-phone__speaker {
+    width: 44px;
+    height: 3px;
+    margin-left: -22px;
+    position: absolute;
+    top: 31px;
+    background: #ebf0f5;
+    border-radius: 4px
+}
+
+.nt-phone__button {
+    width: 30px;
+    height: 30px;
+    margin-left: -15px;
+    position: absolute;
+    bottom: 17px;
+    background: #eeeff1;
+    border-radius: 100%
+}
+
+.nt-phone--black {
+    background: #11161d;
+    box-shadow: 0 0 200px 0 rgba(0, 0, 0, .3)
+}
+
+.nt-phone--black .nt-phone__button,
+.nt-phone--black .nt-phone__camera,
+.nt-phone--black .nt-phone__screen,
+.nt-phone--black .nt-phone__speaker {
+    background: #000
+}
+
+.nt-phone__shadow {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 65px;
+    left: 15px;
+    z-index: 2;
+    box-shadow: inset 0 0 50px 0 rgba(0,0,0,.075);
+    pointer-events: none;
+}
+
+.nt-phone--black .nt-phone__screen .inner {
+    background: url(images/misc/small_white_logo.png) center center no-repeat #000;
+    background-size: 140px 39px
+}
+
+.nt-phone__screen .inner .slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 200%;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: inset 0 0 100px 0 rgba(0, 0, 0, 1.5);
+    transition: left 1s ease-in-out;
+    -webkit-transition: left 1s ease-in-out;
+    -moz-transition: left 1s ease-in-out
+}
+
+.nt-phone__screen .inner .slide.active {
+    left: 0
+}
+
+.nt-phone__screen .inner .slide.hidden {
+    display: none
+}
+
+.nt-phone__screen .inner .slide.slide_2 {
+    z-index: 2
+}
+
+.nt-phone__screen .inner .slide.slide_3 {
+    z-index: 3
+}
+
+.nt-phone__screen .inner .slide.slide_4 {
+    z-index: 4
+}
+
+.nt-phone__screen .inner .slide img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+    pointer-events: none
+}
+
+.nt-phone--tablet {
+    width: 1024px;
+    height: 600px;
+    -webkit-transform: scale(.75);
+    transform: scale(.75);
+}
