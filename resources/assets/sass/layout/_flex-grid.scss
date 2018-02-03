@@ -28,6 +28,12 @@
       padding-right: 24px;
     }
   }
+  @media (min-width: $grid-desktop-breakpoint) {
+    &.has-gutter--40 {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
 
   &--box {
     max-width: 1160px;
@@ -37,6 +43,7 @@
 .md-row {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   .md-container.has-gutter  & {
     margin-left: -8px;
     margin-right: -8px;
@@ -55,8 +62,12 @@
   }
 }
 
+.md-col-break{
+  width: 100% !important;
+}
+
 .md-col {
-  flex-basis: 100%;
+  flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;
   min-height: 1px;
@@ -74,17 +85,28 @@
       padding-right: 12px;
     }
   }
+  @media (min-width: $grid-desktop-breakpoint) {
+    .md-container.has-gutter--40 & {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
 }
 
+@for $i from 1 through $grid-desktop-columns {
+  .md-col--#{$i} {
+    @include flex-layout($i, $grid-desktop-columns);
+  }
+}
+@for $i from 1 through ($grid-desktop-columns) {
+  .md-col--offset-#{$i} {
+    @include flex-offset-size($i, $grid-desktop-columns);
+  }
+}
 
 ////////// Desktop //////////
 
 @media (min-width: $screen-tablet-breakpoint) {
-  @for $i from 1 through $grid-desktop-columns {
-    .md-col--#{$i} {
-      @include flex-layout($i, $grid-desktop-columns);
-    }
-  }
   @for $i from 1 through $grid-desktop-columns {
     .md-col--#{$i}-md {
       @include flex-layout($i, $grid-desktop-columns);
@@ -99,47 +121,31 @@
 
 ////////// Tablet //////////
 
-@media (min-width: $screen-phone-breakpoint) and (max-width: $screen-tablet-breakpoint - 1px) {
-
-  @for $i from 1 through $grid-tablet-columns {
-    .md-col--#{$i} {
-      @include flex-layout($i, $grid-tablet-columns);
-    }
-  }
-
-  @for $i from 1 through $grid-tablet-columns {
+@media (min-width: $screen-phone-breakpoint) and (max-width: $screen-tablet-breakpoint - 1px)  {
+  @for $i from 1 through $grid-desktop-columns {
     .md-col--#{$i}-sm {
-      @include flex-layout($i, $grid-tablet-columns);
+      @include flex-layout($i, $grid-desktop-columns);
     }
   }
 
-  @for $i from 1 through ($grid-tablet-columns - 1) {
+  @for $i from 1 through ($grid-desktop-columns) {
     .md-col--offset-#{$i}-sm {
-      @include flex-offset-size($i, $grid-tablet-columns);
+      @include flex-offset-size($i, $grid-desktop-columns);
     }
   }
-
 }
 
 ////////// Mobile //////////
 
 @media (max-width: $screen-phone-breakpoint - 1px) {
-
-  @for $i from 1 through $grid-phone-columns {
-    .md-col--#{$i} {
-      @include flex-layout($i, $grid-phone-columns);
-    }
-  }
-
-  @for $i from 1 through $grid-phone-columns {
+  @for $i from 1 through $grid-desktop-columns {
     .md-col--#{$i}-xs {
-      @include flex-layout($i, $grid-phone-columns);
+      @include flex-layout($i, $grid-desktop-columns);
     }
   }
-
-  @for $i from 1 through ($grid-phone-columns - 1) {
+  @for $i from 1 through ($grid-desktop-columns) {
     .md-col--offset-#{$i}-xs {
-      @include flex-offset-size($i, $grid-phone-columns);
+      @include flex-offset-size($i, $grid-desktop-columns);
     }
   }
 }

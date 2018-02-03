@@ -31,4 +31,16 @@
     min-height: 100%;
     width: 100%;
   }
+
+  &-rel{
+    position: relative;
+  }
+  &-abs{
+    position: absolute;
+  }
+  &-fix{
+    position: fixed;
+  }
+
+
 }

@@ -82,6 +82,10 @@
     align-items: stretch;
   }
 
+  &--self-center {
+    align-self: center;
+  }
+
   &--self-stretch {
     align-self: stretch;
   }
