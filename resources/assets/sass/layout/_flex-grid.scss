@@ -15,23 +15,30 @@
     padding-left: 16px;
     padding-right: 16px;
   }
-
-  @media (max-width: $screen-phone-breakpoint - 1px) {
-    &.has-gutter--8 {
-      padding-left: 8px;
-      padding-right: 8px;
-    }
+  &.has-gutter--8 {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  &.has-gutter--24{
+    padding-left: 24px;
+    padding-right: 24px;
   }
   @media (min-width: $grid-desktop-breakpoint) {
-    &.has-gutter--24 {
+    &.has-gutter--24-md {
       padding-left: 24px;
       padding-right: 24px;
     }
   }
   @media (min-width: $grid-desktop-breakpoint) {
-    &.has-gutter--40 {
+    &.has-gutter--40-md {
       padding-left: 40px;
       padding-right: 40px;
+    }
+  }
+  @media (max-width: $screen-phone-breakpoint - 1px) {
+    &.has-gutter--8-sm {
+      padding-left: 8px;
+      padding-right: 8px;
     }
   }
 
@@ -73,20 +80,30 @@
   min-height: 1px;
   padding-left: 8px;
   padding-right: 8px;
+
+  .md-container.has-gutter--8 & {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  .md-container.has-gutter--24 & {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
   @media (max-width: $screen-phone-breakpoint - 1px) {
-    .md-container.has-gutter--8 & {
+    .md-container.has-gutter--8-sm & {
       padding-left: 4px;
       padding-right: 4px;
     }
   }
   @media (min-width: $grid-desktop-breakpoint) {
-    .md-container.has-gutter--24 & {
+    .md-container.has-gutter--24-md & {
       padding-left: 12px;
       padding-right: 12px;
     }
   }
   @media (min-width: $grid-desktop-breakpoint) {
-    .md-container.has-gutter--40 & {
+    .md-container.has-gutter--40-md & {
       padding-left: 20px;
       padding-right: 20px;
     }
@@ -121,7 +138,7 @@
 
 ////////// Tablet //////////
 
-@media (min-width: $screen-phone-breakpoint) and (max-width: $screen-tablet-breakpoint - 1px)  {
+@media (max-width: $screen-tablet-breakpoint - 1px)  {
   @for $i from 1 through $grid-desktop-columns {
     .md-col--#{$i}-sm {
       @include flex-layout($i, $grid-desktop-columns);
