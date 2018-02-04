@@ -98,3 +98,15 @@ p{
     animation-fill-mode: both;
     animation-direction: alternate-reverse;
 }
+.demo-gutter .demo_item{
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 2px;
+    background-color: #fff;
+    align-self: center;
+}
+.demo_item--large{
+    min-height: 120px;
+}

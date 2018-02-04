@@ -55,16 +55,28 @@
     margin-left: -8px;
     margin-right: -8px;
   }
+  .md-container.has-gutter--8  & {
+    margin-left: -4px;
+    margin-right: -4px;
+  }
+  .md-container.has-gutter--24  & {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
   @media (max-width: $screen-phone-breakpoint - 1px) {
-    .md-container.has-gutter--8  & {
+    .md-container.has-gutter--8-sm  & {
       margin-left: -4px;
       margin-right: -4px;
     }
   }
   @media (min-width: $grid-desktop-breakpoint) {
-    .md-container.has-gutter--24  & {
+    .md-container.has-gutter--24-md & {
       margin-left: -12px;
       margin-right: -12px;
+    }
+    .md-container.has-gutter--40-md & {
+      margin-left: -20px;
+      margin-right: -20px;
     }
   }
 }

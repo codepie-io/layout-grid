@@ -8,7 +8,7 @@
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
-    <!-- Add to homescreen for Chrome on Android -->
+    <!-- Add to homescreen for Chrome on android -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Dialogs | Material Design | CodeArtisan">
     <meta name="theme-color" content="#4caf50">
@@ -76,30 +76,75 @@
                 <h1 class="docs-chapter-title">Contents</h1>
                 <ul class="docs-chapter">
                     <li class="docs-chapter__item">
-                        <a href="#add-dialog">Responsive Grid</a>
+                        <a href="#responsive-grid">Responsive Grid</a>
                     </li>
                     <li class="docs-chapter__item">
-                        <a href="#scrollable-dialog">Flex Layout</a>
+                        <a href="#flex-layout">Flex Layout</a>
+                    </li>
+
+                    <li class="docs-chapter__item">
+                        <a href="#alignment">Alignment</a>
                     </li>
                     <li class="docs-chapter__item">
-                        <a href="#alert-dialog">Grid Layout</a>
-                    </li>
-                    <li class="docs-chapter__item">
-                        <a href="#full-screen-dialog">Alignment</a>
-                    </li>
+                    <a href="#margin-and-gutters">Margin and Gutters</a>
+                </li>
                 </ul>
             </nav>
         </section>
 
         <section id="add-dialog" class="md-row">
             <div class="md-col md-col--6">
-                <h3 class="docs-heading docs-heading--with-border">
+                <h3 class="docs-heading docs-heading--with-border" id="responsive-grid">
                     Responsive Grid
                 </h3>
             </div>
         </section>
 
-        <section class="md-row">
+        <style>
+    .demo-row .md-col{
+        text-align: center;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        border: 1px solid rgba(0,0,0,.12);
+        border-radius: 2px;
+        background-color: #fff;
+    }
+    .demo-box-with-height{
+        min-height: 200px;
+        background-color: #E0E0E0;
+        padding-bottom: 32px;
+    }
+    .demo-row--full-height{
+        min-height: 100%;
+    }
+</style>
+
+        <section class="md-row demo-row">
+            <div class="md-col md-col--4">1/3 Column <code>md-col md-col--4</code></div>
+            <div class="md-col md-col--4">1/3 Column <code>md-col md-col--4</code></div>
+            <div class="md-col md-col--4">1/3 Column <code>md-col md-col--4</code></div>
+        </section>
+
+        <section class="md-row demo-row layout-m-t-1">
+            <div class="md-col md-col--3">
+                <div>1/4 Column</div>
+                <code>md-col md-col--3</code>
+            </div>
+            <div class="md-col md-col--2">
+                <div>1/4 Column</div>
+                <code>md-col md-col--2</code>
+            </div>
+            <div class="md-col">
+                <div>Variable width</div>
+                <code>md-col</code>
+            </div>
+            <div class="md-col md-col--3">
+                <div>1/4 Column</div>
+                <code>md-col md-col--3</code>
+            </div>
+        </section>
+
+        <section class="hidden md-row">
             <div class="md-col">
                 <div class="splash design">
                     <div class="wrapper standard md-align md-layout md-align--center-start">
@@ -150,7 +195,319 @@
                 </div>
             </div>
         </section>
-        <section class="demo-view">
+        <h3 class="docs-heading docs-heading--with-border">
+            Equal-width
+        </h3>
+        <section class="md-row demo-row">
+            <div class="md-col">
+                1 of 2
+            </div>
+            <div class="md-col">
+                2 of 2
+            </div>
+        </section>
+
+        <div class="md-row demo-row">
+            <div class="md-col">
+                1 of 3
+            </div>
+            <div class="md-col">
+                2 of 3
+            </div>
+            <div class="md-col">
+                3 of 3
+            </div>
+        </div>
+        <h3 class="docs-heading docs-heading--with-border">
+            Equal-width columns broken into multiple lines.
+        </h3>
+        <div class="md-row demo-row">
+            <div class="md-col">
+                <code>md-col</code>
+            </div>
+            <div class="md-col">
+                <code>md-col</code>
+            </div>
+            <div class="md-col-break"></div>
+            <div class="md-col">
+                <code>md-col</code>
+            </div>
+            <div class="md-col">
+                <code>md-col</code>
+            </div>
+        </div>
+
+        <h3 class="docs-heading docs-heading--with-border">
+            Responsive columns
+        </h3>
+        <div class="md-row demo-row">
+            <div class="md-col">
+                <code>md-col</code>
+            </div>
+            <div class="md-col">
+                <code>md-col</code>
+            </div>
+            <div class="md-col">
+                <code>md-col</code>
+            </div>
+            <div class="md-col">
+                <code>md-col</code>
+            </div>
+        </div>
+        <div class="layout-m-t-1 md-row demo-row">
+            <div class="md-col md-col--8">
+                <code>md-col md-col--8</code>
+            </div>
+            <div class="md-col md-col--4">
+                <code>md-col md-col--4</code>
+            </div>
+        </div>
+        <h3 class="docs-heading docs-heading--with-border">
+            Horizontally Stacked
+        </h3>
+
+        <div class="layout-m-t-1 md-row demo-row">
+            <div class="md-col md-col--8-sm">
+                <code>md-col md-col--8-sm</code>
+            </div>
+            <div class="md-col md-col--4-sm">
+                <code>md-col md-col--4-sm</code>
+            </div>
+        </div>
+        <div class="layout-m-t-1 md-row demo-row">
+            <div class="md-col md-col--12-sm md-col--6">
+                <code>md-col md-col--12-sm</code>
+            </div>
+            <div class="md-col md-col--12-sm md-col--6">
+                <code>md-col md-col--12-sm</code>
+            </div>
+        </div>
+        <h3 class="docs-heading docs-heading--with-border" id="alignment">
+            Alignment
+        </h3>
+        <h4 class="docs-heading docs-heading--with-border">
+            Align Vertically
+        </h4>
+        <div class="layout-m-t-1 demo-box-with-height">
+            <div class="md-row demo-row">
+                <div class="md-col md-col--12-sm md-col--6">
+                    <code>md-col md-col--12-sm</code>
+                </div>
+                <div class="md-col md-col--12-sm md-col--6">
+                    <code>md-col md-col--12-sm</code>
+                </div>
+            </div>
+        </div>
+        <div class="layout-m-t-1 md-layout md-layout--column md-align md-align--center demo-box-with-height">
+            <div class="md-row demo-row">
+                <div class="md-col md-col--12-sm md-col--6">
+                    <code>md-col md-col--12-sm</code>
+                </div>
+                <div class="md-col md-col--12-sm md-col--6">
+                    <code>md-col md-col--12-sm</code>
+                </div>
+            </div>
+        </div>
+        <div class="layout-m-t-1 md-layout md-layout--column md-align md-align--end demo-box-with-height">
+            <div class="md-row demo-row">
+                <div class="md-col md-col--12-sm md-col--6">
+                    <code>md-col md-col--12-sm</code>
+                </div>
+                <div class="md-col md-col--12-sm md-col--6">
+                    <code>md-col md-col--12-sm</code>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="docs-heading docs-heading--with-border">
+            Align Horizontally
+        </h4>
+        <div class="layout-m-t-1 demo-box-with-height">
+            <div class="md-row demo-row">
+                <div class="md-col md-col--12-sm md-col--4">
+                    <code>md-col md-col--12-sm</code>
+                </div>
+            </div>
+            <div class="md-row demo-row md-align md-align--center">
+                <div class="md-col md-col--12-sm md-col--4 md-align--center">
+                    <code>md-col md-col--12-sm</code>
+                </div>
+            </div>
+            <div class="md-row demo-row md-align md-align--end">
+                <div class="md-col md-col--12-sm md-col--4 md-align--end-end md-align">
+                    <code>md-col md-col--12-sm</code>
+                </div>
+            </div>
+        </div>
+
+        <!--Margins and Gutters-->
+        <section id="margin-gutters">
+            <h3 class="docs-heading--with-border" id="margin-and-gutters">Margins and Gutters</h3>
+            <p>
+                Material design grid layout may have different margin and gutter width, rather than fixed one.
+                It follows an 8dp square baseline grid and can adapt 8, 16, 24 or 40px wide. But in our framework,
+                we are using 8, 16 and 24 only. 40px margin or gutter are rarely used and can be excluded for now.
+            </p>
+
+            <div class="layout-m-t-1 demo-box-with-height">
+                <div class="text-center layout-p-b-1 layout-p-t-1">
+                    <h6>Default is 16px gutter and margin</h6>
+                    <code>has-gutter</code>
+                </div>
+                <div class="md-container has-gutter">
+                    <div class="md-row demo-gutter">
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layout-m-t-1 demo-box-with-height">
+                <div class="text-center layout-p-b-1 layout-p-t-1">
+                    <h6>With 8px gutter and margin</h6>
+                    <code>has-gutter has-gutter--8</code>
+                </div>
+                <div class="md-container has-gutter has-gutter--8">
+                    <div class="md-row demo-gutter">
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layout-m-t-1 demo-box-with-height">
+                <div class="text-center layout-p-b-1 layout-p-t-1">
+                    <h6>With 8px gutter and margin (If you only want on mobile/tablet) </h6>
+                    <code>has-gutter has-gutter--8-sm</code>
+                </div>
+                <div class="md-container has-gutter has-gutter--8-sm">
+                    <div class="md-row demo-gutter">
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layout-m-t-1 demo-box-with-height">
+                <div class="text-center layout-p-b-1 layout-p-t-1">
+                    <h6>With 24ox gutter and margin</h6>
+                    <code>has-gutter has-gutter--24</code>
+                </div>
+                <div class="md-container has-gutter has-gutter--24">
+                    <div class="md-row demo-gutter">
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layout-m-t-1 demo-box-with-height">
+                <div class="text-center layout-p-b-1 layout-p-t-1">
+                    <h6>With 24ox gutter and margin (If you only want on desktop)</h6>
+                    <code>has-gutter has-gutter--24-md</code>
+                </div>
+                <div class="md-container has-gutter has-gutter--24-md">
+                    <div class="md-row demo-gutter">
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layout-m-t-1 demo-box-with-height">
+                <div class="text-center layout-p-b-1 layout-p-t-1">
+                    <h6>With 40ox gutter and margin (for desktop only)</h6>
+                    <code>has-gutter has-gutter--40-md</code>
+                </div>
+                <div class="md-container has-gutter has-gutter--40-md">
+                    <div class="md-row demo-gutter">
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                        <div class="md-col md-col--12-sm md-col--4">
+                            <div class="demo_item demo_item--large">
+                                <code>md-col md-col--12-sm</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="demo-view hidden">
             <h4 class="docs-heading">
                 Responsive demo on tablet and mobile
             </h4>
